@@ -1,6 +1,7 @@
 {
   "buildCommand": "npm run build",
   "outputDirectory": "build/client",
+  "serverFiles": ["build/server/**"],
   "routes": [
     {
       "handle": "filesystem"
