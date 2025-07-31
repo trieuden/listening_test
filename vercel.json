@@ -1,26 +1,9 @@
 {
   "buildCommand": "npm run build",
-  "devCommand": "npm run dev",
-  "installCommand": "npm install",
-  "framework": null,
   "outputDirectory": "build/client",
   "functions": {
     "build/server/index.js": {
-      "runtime": "nodejs20.x"
+      "runtime": "@vercel/node@3.0.0"
     }
-  },
-  "routes": [
-    {
-      "src": "/assets/(.*)",
-      "dest": "/assets/$1"
-    },
-    {
-      "src": "/files/(.*)",
-      "dest": "/files/$1"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/build/server/index.js"
-    }
-  ]
+  }
 }
