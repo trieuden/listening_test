@@ -10,9 +10,15 @@ export const Part1 = () => {
     const [currentIndex, setCurrentIndex] = useState(0);
     const [showQuestion, setShowQuestion] = useState(false);
     const [result, setResult] = useState<string>("");
+    const [isClient, setIsClient] = useState(false);
 
     const mediaRecorderRef = useRef<MediaRecorder | null>(null);
     const audioChunksRef = useRef<Blob[]>([]);
+
+    // Check if we're on client side
+    useEffect(() => {
+        setIsClient(true);
+    }, []);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -32,22 +38,32 @@ export const Part1 = () => {
     }, []);
 
     const startRecording = async () => {
-        const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
-        const mediaRecorder = new MediaRecorder(stream);
-        audioChunksRef.current = [];
+        // Check if we're in browser environment
+        if (typeof navigator === 'undefined' || !navigator.mediaDevices) {
+            console.error('Media devices not available');
+            return;
+        }
+        
+        try {
+            const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+            const mediaRecorder = new MediaRecorder(stream);
+            audioChunksRef.current = [];
 
-        mediaRecorder.ondataavailable = (e) => {
-            audioChunksRef.current.push(e.data);
-        };
+            mediaRecorder.ondataavailable = (e) => {
+                audioChunksRef.current.push(e.data);
+            };
 
-        mediaRecorder.onstop = () => {
-            const audioBlob = new Blob(audioChunksRef.current, { type: "audio/webm" });
-            const audioUrl = URL.createObjectURL(audioBlob);
-            setResult(audioUrl);
-        };
+            mediaRecorder.onstop = () => {
+                const audioBlob = new Blob(audioChunksRef.current, { type: "audio/webm" });
+                const audioUrl = URL.createObjectURL(audioBlob);
+                setResult(audioUrl);
+            };
 
-        mediaRecorder.start();
-        mediaRecorderRef.current = mediaRecorder;
+            mediaRecorder.start();
+            mediaRecorderRef.current = mediaRecorder;
+        } catch (error) {
+            console.error('Error accessing microphone:', error);
+        }
     };
 
     const stopRecording = () => {
@@ -75,22 +91,38 @@ export const Part1 = () => {
             <Stack direction="row" className="w-full p-[5%]">
                 <Stack flex={1}>
                     <span className="flex-1 text-xl">{!showQuestion ? "Waiting ..." : part1Data[currentIndex]}</span>
-                    {result && <audio controls src={result} className="mt-4" />}
+                    {result && isClient && (
+                        <audio controls src={result} className="mt-4">
+                            <track kind="captions" src="" label="No captions available" />
+                            Your browser does not support the audio element.
+                        </audio>
+                    )}
                 </Stack>
 
                 <CountdownCircle start={start} setStart={setStart} onCountdownEnd={handleCountdownEnd} />
             </Stack>
 
             <Stack direction="row" className="w-full justify-center" spacing={2}>
-                <PrimaryButton
-                    title="Bắt đầu"
-                    handleClick={() => {
-                        setStart(true);
-                        setShowQuestion(true);
-                        startRecording(); // Bắt đầu ghi âm
-                    }}
-                />
-                <PrimaryButton title="Tiếp theo" handleClick={NextIndex} bgColor="#cccc00" />
+                {isClient && (
+                    <>
+                        <PrimaryButton
+                            title="Bắt đầu"
+                            handleClick={() => {
+                                setStart(true);
+                                setShowQuestion(true);
+                                startRecording(); // Bắt đầu ghi âm
+                            }}
+                        />
+                        <PrimaryButton title="Tiếp theo" handleClick={NextIndex} bgColor="#cccc00" />
+                        <PrimaryButton
+                            title="Dừng"
+                            handleClick={() => {
+                                stopRecording(); // Dừng ghi âm
+                                setStart(false);
+                            }}
+                        />
+                    </>
+                )}
             </Stack>
         </Stack>
     );

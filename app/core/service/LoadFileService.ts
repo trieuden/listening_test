@@ -1,11 +1,15 @@
 export const ReadDefaultFile = async (fileName: string): Promise<string[]> => {
     try {
-        const res = await fetch(`${window.location.origin}/files/${fileName}`);
+        // Check if we're in browser environment
+        const baseUrl = typeof window !== 'undefined' 
+            ? window.location.origin 
+            : '';
+        const res = await fetch(`${baseUrl}/files/${fileName}`);
         const json = await res.json();
 
         return json;
     } catch (error) {
-        console.error("Failed to fetch milo.json", error);
+        console.error("Failed to fetch file", error);
         return [];
     }
 };

@@ -6,7 +6,7 @@ import { Part1 } from "./component/Part1";
 
 export const HomePage = () => {
     return (
-        <Stack className=" h-100vh text-white">
+        <Stack className=" h-100vh text-white bg-[#404040]">
             <span className="p-4 text-3xl font-bold">Listening Test</span>
 
             <Part1 />
