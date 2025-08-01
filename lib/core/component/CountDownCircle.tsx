@@ -8,10 +8,11 @@ type CountdownCircleProps = {
     setStart: (start: boolean) => void;
     onCountdownEnd?: () => void;
     time: number;
+    delayTime?: boolean;
 };
 
-export const CountdownCircle = ({ start, setStart, onCountdownEnd, time }: CountdownCircleProps) => {
-    const [timeLeft, setTimeLeft] = useState(time + 5); // Thêm 5 giây để chuẩn bị
+export const CountdownCircle = ({ start, setStart, onCountdownEnd, time, delayTime = true }: CountdownCircleProps) => {
+    const [timeLeft, setTimeLeft] = useState(time + (delayTime ? 5 : 0)); // Thêm 5 giây để chuẩn bị
     const audioRef = useRef<HTMLAudioElement | null>(null);
     const [hasPlayedAudio, setHasPlayedAudio] = useState(false); // tránh phát lại nhiều lần
 
@@ -20,7 +21,7 @@ export const CountdownCircle = ({ start, setStart, onCountdownEnd, time }: Count
 
         setHasPlayedAudio(false); // reset mỗi lần bắt đầu
         if (start) {
-            setTimeLeft(time + 5);
+            setTimeLeft(time + (delayTime ? 5 : 0));
             setHasPlayedAudio(false); // reset mỗi lần bắt đầu
 
             timer = setInterval(() => {
@@ -39,20 +40,20 @@ export const CountdownCircle = ({ start, setStart, onCountdownEnd, time }: Count
         }
 
         return () => clearInterval(timer);
-    }, [start, time]);
+    }, [start, time, delayTime]);
 
     // Sử dụng useEffect riêng để theo dõi timeLeft
     useEffect(() => {
         if (timeLeft <= 0 && start) {
             if (onCountdownEnd) onCountdownEnd();
-            setTimeLeft(time + 5); // Reset thời gian
+            setTimeLeft(time + (delayTime ? 5 : 0)); // Reset thời gian
         }
     }, [timeLeft, start, onCountdownEnd, time]);
 
     return (
         <Stack alignItems="center" justifyContent="center" className="h-[200px] w-[200px] rounded-full border-2 border-white text-white">
             <audio ref={audioRef} src="/audio/censor-beep.mp3" preload="auto" />
-            <h2 className="text-4xl font-bold">{!start ? <KeyboardVoice fontSize="large" className="text-white" /> : timeLeft > time ? "Chuẩn bị" : `${timeLeft}s`}</h2>
+            <h2 className="text-4xl font-bold">{!start ? <KeyboardVoice fontSize="large" className="text-white" /> : timeLeft > time && delayTime ? "Chuẩn bị" : `${timeLeft}s`}</h2>
         </Stack>
     );
 };

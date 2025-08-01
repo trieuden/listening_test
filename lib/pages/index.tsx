@@ -5,6 +5,7 @@ import { Stack } from "@mui/material";
 import { OutlineButton } from "@/core/component/button/OutlineButton";
 import { Part1 } from "./component/Part1";
 import { Part2 } from "./component/Part2";
+import { Part4 } from "./component/Part4";
 
 export const HomePage = () => {
     const [currentPage, setCurrentPage] = useState(1);
@@ -21,7 +22,7 @@ export const HomePage = () => {
                     case 3:
                         return <span className="p-4 text-2xl">Part 3</span>;
                     case 4:
-                        return <span className="p-4 text-2xl">Part 4</span>;
+                        return <Part4 />;
                     default:
                         return null;
                 }
@@ -32,7 +33,7 @@ export const HomePage = () => {
                 <OutlineButton title="Part 1" handleClick={() => setCurrentPage(1)} />
                 <OutlineButton title="Part 2" handleClick={() => setCurrentPage(2)} />
                 <OutlineButton title="Part 3" handleClick={() => console.log("Next button clicked")} />
-                <OutlineButton title="Part 4" handleClick={() => console.log("Next button clicked")} />
+                <OutlineButton title="Part 4" handleClick={() => setCurrentPage(4)} />
             </Stack>
         </Stack>
     );

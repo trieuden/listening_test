@@ -1,0 +1,226 @@
+[
+    {
+        "question": "Tell me about a time when you had to put in a lot of effort.",
+        "suggestion": []
+    },
+    {
+        "question": "Tell me about a time when you in a hurry",
+        "suggestion": []
+    },
+    {
+        "question": "Tell me about a time when you stressed out",
+        "suggestion": []
+    },
+    {
+        "question": "Tell me about the time you had many options to choose.",
+        "suggestion": []
+    },
+    {
+        "question": "Tell me about a time you were impressed by the works of art.",
+        "suggestion": []
+    },
+    {
+        "question": "Tell me about a film that you loved watching",
+        "suggestion": []
+    },
+    {
+        "question": "Tell me about the time you worked with both young and old people.",
+        "suggestion": []
+    },
+    {
+        "question": "Tell me about the time you met an impolite person.",
+        "suggestion": []
+    },
+    {
+        "question": "Tell me about the time you laughed with friends",
+        "suggestion": []
+    },
+    {
+        "question": "Tell me about the time you argued with someone",
+        "suggestion": []
+    },
+    {
+        "question": "Tell me about the time you raised a question to someone",
+        "suggestion": []
+    },
+    {
+        "question": "Tell me about a time you receive an important new by email or phone",
+        "suggestion": ["your feeling", "What do you think about too much information on the internet?"]
+    },
+    {
+        "question": "Tell me about a time when you received an interesting news?",
+        "suggestion": []
+    },
+    {
+        "question": "Describe an extreme sport that you have seen or played.",
+        "suggestion": ["How do you feel about it?", "Do you think that only adults are allowed to play extreme sports?"]
+    },
+    {
+        "question": "Tell me about a time when you were encouraged by others.",
+        "suggestion": ["How do you feel when someone does something you enjoy?", "What are ways to motivate others?"]
+    },
+    {
+        "question": "When was the first time that you used the internet?",
+        "suggestion": ["How do you feel when using the internet?", "Do you think people nowadays use the internet a lot?"]
+    },
+    {
+        "question": "Tell me about a time when you had to work with other people.",
+        "suggestion": ["How do you feel about working as part of a team?", "What are the characteristics of a successful team?"]
+    },
+    {
+        "question": "Tell me about the time you had a successful challenge.",
+        "suggestion": ["How did you feel about that?", "What can help people face challenges in daily life?"]
+    },
+    {
+        "question": "Tell me about your busiest time.",
+        "suggestion": ["How did you feel about it?", "Is it right that the less you work, the better your life is?"]
+    },
+    {
+        "question": "Tell me about a time you worked hard to achieve your goal.",
+        "suggestion": ["How did you feel when you achieved your goal?", "How should people be encouraged to achieve their goals?"]
+    },
+    {
+        "question": "Talk about a time you visited a new city.",
+        "suggestion": ["What was the environment like there?", "What can be done to reduce pollution?"]
+    },
+    {
+        "question": "Tell me about a time you met a new friend.",
+        "suggestion": ["How did you feel?", "What are the benefits of making new friends?"]
+    },
+    {
+        "question": "Tell me about the last time you received good news.",
+        "suggestion": ["How did you feel?", "Why do people want to celebrate good news?"]
+    },
+    {
+        "question": "Tell me about a time you learned something new.",
+        "suggestion": ["What was the most difficult thing you had to face?", "Why do people love learning new things?"]
+    },
+    {
+        "question": "A time when you were helped by someone.",
+        "suggestion": ["How did you feel?", "Do you think there are many rules in modern life?"]
+    },
+
+    {
+        "question": "Tell me about a time you helped someone",
+        "suggestion": []
+    },
+    {
+        "question": "Tell me about a time when someone told you to stop doing something.",
+        "suggestion": ["How did you feel?", "Do you think there are many rules in modern life?"]
+    },
+    {
+        "question": "Tell me about a time when you got lost.",
+        "suggestion": ["How did you feel?", "What do people usually do when they get lost?"]
+    },
+    {
+        "question": "Tell me about a time when you visited an old building.",
+        "suggestion": ["How did you feel?", "Why do people like visiting new places?"]
+    },
+    {
+        "question": "Tell me about a time when you broke the law.",
+        "suggestion": ["What did you do?", "Why should people follow the law?"]
+    },
+
+    {
+        "question": "Tell me about a time when you joined a music festival.",
+        "suggestion": ["How did you feel?", "What are the benefits of this event?"]
+    },
+    {
+        "question": "Tell me about a time when you watched a sports event.",
+        "suggestion": ["How did you feel?", "What are the benefits of joining a sports event?"]
+    },
+    {
+        "question": "Tell me about a time when you joined an activity for children.",
+        "suggestion": ["How did you feel?", "What are the benefits of these activities?"]
+    },
+    {
+        "question": "Tell me about your favorite piece of clothing.",
+        "suggestion": ["How do you feel when you wear it?", "Why do people dress in such different ways?"]
+    },
+    {
+        "question": "Tell me about your sleeping habits.",
+        "suggestion": ["How do you feel when you don't have enough sleep?", "Is getting the right amount of sleep important? Why or why not?"]
+    },
+    {
+        "question": "Tell me about the music that comes from your country.",
+        "suggestion": ["How do you feel when you hear or listen to music?", "Why do some cultures produce so much music and others so little?"]
+    },
+    {
+        "question": "Tell me about a time that you started a course.",
+        "suggestion": ["Why is it interesting?", "When do people start a course?"]
+    },
+    {
+        "question": "Talk about a time you went to an amusement park.",
+        "suggestion": ["How do you feel?", "Why do people choose adventure games there?"]
+    },
+    {
+        "question": "Talk about a time you took part in a thrilling (or extreme) ride.",
+        "suggestion": []
+    },
+    {
+        "question": "Talk about a time you read a good book",
+        "suggestion": []
+    },
+    {
+        "question": "Tell me about the last time you used the internet.",
+        "suggestion": [
+            "Your feeling.",
+            "Other people believe that the internet has many bad effects, what do you think?",
+            "What do you use the internet for?",
+            "How do you feel when you use it?",
+            "Many people say that the internet has a bad impact on people, what do you think?"
+        ]
+    },
+    {
+        "question": "Tell me about a time you received a difficult question.",
+        "suggestion": []
+    },
+    {
+        "question": "Tell about a time when you were asked for some information.",
+        "suggestion": []
+    },
+    {
+        "question": "Tell about a time when you spent a lot of time planning something.",
+        "suggestion": []
+    },
+    {
+        "question": "Tell me about the time you saved money to buy things.",
+        "suggestion": []
+    },
+    {
+        "question": "Tell about a time when you wanted to buy something but couldn’t.",
+        "suggestion": []
+    },
+    {
+        "question": "Tell me about a time when you went on a long journey.",
+        "suggestion": ["How did you feel about it?", "How do people travel long distances in your country?"]
+    },
+    {
+        "question": "Tell me about a time when you visited a very tall building.",
+        "suggestion": ["How did you feel about it?", "Why do you think so many cities have tall buildings?"]
+    },
+    {
+        "question": "Describe a bad weather experience.",
+        "suggestion": []
+    },
+    {
+        "question": "Describe a time when you went on holiday, the best and the worst thing.",
+        "suggestion": []
+    },
+    {
+        "question": "Tell about a place you have traveled to.",
+        "suggestion": ["How did you feel?", "What is the importance of understanding local customs when you travel?"]
+    },
+    {
+        "question": "Tell about a time when you had to do something you didn’t want to do. ",
+        "suggestion": []
+    },
+    {
+        "question": "Tell about a time when you went into a forest to play or explore.",
+        "suggestion": []
+    },
+    {
+        "question": "Tell about a time when you visited a friend.",
+        "suggestion": []
+    }
+]
