@@ -23,6 +23,7 @@ export const Part3 = ({ part3Data }: Part2DataProps) => {
     const mediaRecorderRef = useRef<MediaRecorder | null>(null);
     const audioChunksRef = useRef<Blob[]>([]);
     const streamRef = useRef<MediaStream | null>(null);
+    const [isButtonStartDisabled, setIsButtonStartDisabled] = useState(false);
 
     useEffect(() => {
         if (part3Data.length > 0) {
@@ -119,8 +120,16 @@ export const Part3 = ({ part3Data }: Part2DataProps) => {
             <Stack direction="row" className="w-full p-[5%]">
                 <Stack flex={1}>
                     {showQuestion && <img src={`/images/part3/${part3Data[currentIndex]?.image}.PNG`} alt="" className="w-100" />}
-                    <span className="flex-1 text-xl">{!showQuestion ? "Waiting ..." : part3Data[currentIndex]?.question[questionIndex]}</span>
-
+                    <span className="flex-1 text-2xl mt-5">{!showQuestion ? "Waiting ..." : part3Data[currentIndex]?.question[questionIndex]}</span>
+                </Stack>
+                <Stack flex={1} >
+                    {questionIndex == 2 && !start && (
+                        <Stack direction={"column"} alignItems={"start"}>
+                            <span className=" text-xl">{part3Data[currentIndex]?.question[0]}</span>
+                            <span className=" text-xl">{part3Data[currentIndex]?.question[1]}</span>
+                            <span className=" text-xl">{part3Data[currentIndex]?.question[2]}</span>
+                        </Stack>
+                    )}
                     {result0 && (
                         <audio controls src={result0} className="mt-4">
                             <track kind="captions" srcLang="vi" label="No captions available" />
@@ -140,13 +149,6 @@ export const Part3 = ({ part3Data }: Part2DataProps) => {
                         </audio>
                     )}
                 </Stack>
-                {questionIndex == 2 && !start && (
-                    <Stack flex={1} direction={"column"} alignItems={"start"}>
-                        <span className=" text-xl">{part3Data[currentIndex]?.question[0]}</span>
-                        <span className=" text-xl">{part3Data[currentIndex]?.question[1]}</span>
-                        <span className=" text-xl">{part3Data[currentIndex]?.question[2]}</span>
-                    </Stack>
-                )}
                 <Stack spacing={1}>
                     <CountdownCircle start={start} setStart={setStart} onCountdownEnd={handleCountdownEnd} time={45} />
                     {start && (
@@ -167,15 +169,18 @@ export const Part3 = ({ part3Data }: Part2DataProps) => {
 
             <Stack direction="row" className="w-full justify-center" spacing={2}>
                 <>
-                    <PrimaryButton
-                        title="Bắt đầu"
-                        handleClick={() => {
-                            setStart(true);
-                            setShowQuestion(true);
-                            startRecording(); // Bắt đầu ghi âm
-                        }}
-                    />
-                    <PrimaryButton title="Chủ đề tiếp theo" handleClick={NextIndex} bgColor="#cccc00" />
+                    {!isButtonStartDisabled && (
+                        <PrimaryButton
+                            title="Bắt đầu"
+                            handleClick={() => {
+                                setStart(true);
+                                setShowQuestion(true);
+                                startRecording(); // Bắt đầu ghi âm
+                                setIsButtonStartDisabled(true);
+                            }}
+                        />
+                    )}
+                    {part3Data.length > 1 && <PrimaryButton title="Chủ đề tiếp theo" handleClick={NextIndex} bgColor="#cccc00" />}
                 </>
             </Stack>
         </Stack>

@@ -18,6 +18,8 @@ export const Part4 = ({ part4Data }: Part4DataProps) => {
     const [result, setResult] = useState<string>("");
     const [isClient, setIsClient] = useState(false);
     const [setUpTime, setSetUpTime] = useState(true);
+        const [isButtonStartDisabled, setIsButtonStartDisabled] = useState(false);
+    
 
     const mediaRecorderRef = useRef<MediaRecorder | null>(null);
     const audioChunksRef = useRef<Blob[]>([]);
@@ -92,7 +94,7 @@ export const Part4 = ({ part4Data }: Part4DataProps) => {
         <Stack className="h-100vh text-white">
             <Stack direction="row" className="w-full p-[5%]">
                 <Stack flex={1}>
-                    <span className="flex-1 text-xl">{!showQuestion ? "Waiting ..." : part4Data[currentIndex].question}</span>
+                    <span className=" text-xl">{!showQuestion ? "Waiting ..." : part4Data[currentIndex].question}</span>
                     {showQuestion && (
                         <ul className="list-disc pl-5">
                             {part4Data[currentIndex]?.suggestion?.map((item, index) => (
@@ -131,14 +133,19 @@ export const Part4 = ({ part4Data }: Part4DataProps) => {
             <Stack direction="row" className="w-full justify-center" spacing={2}>
                 {isClient && (
                     <>
-                        <PrimaryButton
+                        {!isButtonStartDisabled && (
+                            <PrimaryButton
                             title="Bắt đầu"
                             handleClick={() => {
                                 setStart(true);
                                 setShowQuestion(true);
+                                setIsButtonStartDisabled(true);
                             }}
                         />
-                        <PrimaryButton title="Câu tiếp theo" handleClick={NextIndex} bgColor="#cccc00" />
+                        )}
+                        {part4Data.length > 1 && (
+                            <PrimaryButton title="Câu tiếp theo" handleClick={NextIndex} bgColor="#cccc00" />
+                        )}
                     </>
                 )}
             </Stack>

@@ -9,8 +9,11 @@ type Part2DataProps = {
         image: string;
         question: string[];
     }[];
+    handleGetResult_1?: (result: string) => void;
+    handleGetResult_2?: (result: string) => void;
+    handleGetResult_3?: (result: string) => void;
 };
-export const Part2 = ({ part2Data }: Part2DataProps) => {
+export const Part2 = ({ part2Data, handleGetResult_1, handleGetResult_2, handleGetResult_3 }: Part2DataProps) => {
     const [start, setStart] = useState(false);
     const [currentIndex, setCurrentIndex] = useState(0);
     const [showQuestion, setShowQuestion] = useState(false);
@@ -19,6 +22,7 @@ export const Part2 = ({ part2Data }: Part2DataProps) => {
     const [result2, setResult2] = useState<string>("");
     const [questionIndex, setQuestionIndex] = useState(0);
     const [nextQuestion, setNextQuestion] = useState(false);
+    const [isButtonStartDisabled, setIsButtonStartDisabled] = useState(false);
 
     const mediaRecorderRef = useRef<MediaRecorder | null>(null);
     const audioChunksRef = useRef<Blob[]>([]);
@@ -66,10 +70,13 @@ export const Part2 = ({ part2Data }: Part2DataProps) => {
                 const audioUrl = URL.createObjectURL(audioBlob);
                 if (questionIndex === 0) {
                     setResult0(audioUrl);
+                    handleGetResult_1?.(audioUrl);
                 } else if (questionIndex === 1) {
                     setResult1(audioUrl);
+                    handleGetResult_2?.(audioUrl);
                 } else if (questionIndex === 2) {
                     setResult2(audioUrl);
+                    handleGetResult_3?.(audioUrl);
                 }
 
                 // Clean up stream after recording stops
@@ -119,32 +126,33 @@ export const Part2 = ({ part2Data }: Part2DataProps) => {
             <Stack direction="row" className="w-full p-[5%]">
                 <Stack flex={1}>
                     {showQuestion && <img src={`/images/part2/${part2Data[currentIndex]?.image}.PNG`} alt="" className="w-60" />}
-                    <span className="flex-1 text-xl">{!showQuestion ? "Waiting ..." : part2Data[currentIndex]?.question[questionIndex]}</span>
-
-                    {result0 && (
-                        <audio controls src={result0} className="mt-4">
-                            <track kind="captions" srcLang="vi" label="No captions available" />
-                            Your browser does not support the audio element.
-                        </audio>
-                    )}
-                    {result1 && (
-                        <audio controls src={result1} className="mt-4">
-                            <track kind="captions" srcLang="vi" label="No captions available" />
-                            Your browser does not support the audio element.
-                        </audio>
-                    )}
-                    {result2 && (
-                        <audio controls src={result2} className="mt-4">
-                            <track kind="captions" srcLang="vi" label="No captions available" />
-                            Your browser does not support the audio element.
-                        </audio>
-                    )}
+                    <span className="flex-1 text-2xl mt-4">{!showQuestion ? "Waiting ..." : part2Data[currentIndex]?.question[questionIndex]}</span>
                 </Stack>
                 {questionIndex == 2 && !start && (
-                    <Stack flex={1} direction={"column"} alignItems={"start"}>
-                        <span className=" text-xl">{part2Data[currentIndex]?.question[0]}</span>
-                        <span className=" text-xl">{part2Data[currentIndex]?.question[1]}</span>
-                        <span className=" text-xl">{part2Data[currentIndex]?.question[2]}</span>
+                    <Stack flex={1} >
+                        <Stack direction={"column"} alignItems={"start"}>
+                            <span className=" text-xl">{part2Data[currentIndex]?.question[0]}</span>
+                            <span className=" text-xl">{part2Data[currentIndex]?.question[1]}</span>
+                            <span className=" text-xl">{part2Data[currentIndex]?.question[2]}</span>
+                        </Stack>
+                        {result0 && (
+                            <audio controls src={result0} className="mt-4">
+                                <track kind="captions" srcLang="vi" label="No captions available" />
+                                Your browser does not support the audio element.
+                            </audio>
+                        )}
+                        {result1 && (
+                            <audio controls src={result1} className="mt-4">
+                                <track kind="captions" srcLang="vi" label="No captions available" />
+                                Your browser does not support the audio element.
+                            </audio>
+                        )}
+                        {result2 && (
+                            <audio controls src={result2} className="mt-4">
+                                <track kind="captions" srcLang="vi" label="No captions available" />
+                                Your browser does not support the audio element.
+                            </audio>
+                        )}
                     </Stack>
                 )}
                 <Stack spacing={1}>
@@ -167,15 +175,18 @@ export const Part2 = ({ part2Data }: Part2DataProps) => {
 
             <Stack direction="row" className="w-full justify-center" spacing={2}>
                 <>
-                    <PrimaryButton
-                        title="Bắt đầu"
-                        handleClick={() => {
-                            setStart(true);
-                            setShowQuestion(true);
-                            startRecording(); // Bắt đầu ghi âm
-                        }}
-                    />
-                    <PrimaryButton title="Chủ đề tiếp theo" handleClick={NextIndex} bgColor="#cccc00" />
+                    {!isButtonStartDisabled && (
+                        <PrimaryButton
+                            title="Bắt đầu"
+                            handleClick={() => {
+                                setStart(true);
+                                setShowQuestion(true);
+                                startRecording(); // Bắt đầu ghi âm
+                                setIsButtonStartDisabled(true);
+                            }}
+                        />
+                    )}
+                    {part2Data.length > 1 && <PrimaryButton title="Chủ đề tiếp theo" handleClick={NextIndex} bgColor="#cccc00" />}
                 </>
             </Stack>
         </Stack>
