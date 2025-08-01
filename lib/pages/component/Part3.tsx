@@ -2,15 +2,15 @@ import React, { useEffect, useRef, useState } from "react";
 import { Stack } from "@mui/material";
 import { CountdownCircle } from "@/core/component/CountDownCircle";
 import { PrimaryButton } from "@/core/component/button/PrimaryButton";
-import { getPart2Data } from "@/core/services/LoadFileService";
+import { getPart3Data } from "@/core/services/LoadFileService";
 
 type Part2DataProps = {
-    part2Data: {
+    part3Data: {
         image: string;
         question: string[];
     }[];
 };
-export const Part2 = ({ part2Data }: Part2DataProps) => {
+export const Part3 = ({ part3Data }: Part2DataProps) => {
     const [start, setStart] = useState(false);
     const [currentIndex, setCurrentIndex] = useState(0);
     const [showQuestion, setShowQuestion] = useState(false);
@@ -25,7 +25,7 @@ export const Part2 = ({ part2Data }: Part2DataProps) => {
     const streamRef = useRef<MediaStream | null>(null);
 
     useEffect(() => {
-        if (part2Data.length > 0) {
+        if (part3Data.length > 0) {
             setCurrentIndex(0);
         }
     }, []);
@@ -103,7 +103,7 @@ export const Part2 = ({ part2Data }: Part2DataProps) => {
     };
 
     const NextIndex = () => {
-        if (currentIndex < part2Data.length - 1) {
+        if (currentIndex < part3Data.length - 1) {
             setCurrentIndex(currentIndex + 1);
             setStart(false);
             setShowQuestion(false);
@@ -118,8 +118,8 @@ export const Part2 = ({ part2Data }: Part2DataProps) => {
         <Stack className="h-100vh text-white">
             <Stack direction="row" className="w-full p-[5%]">
                 <Stack flex={1}>
-                    {showQuestion && <img src={`/images/part2/${part2Data[currentIndex]?.image}.PNG`} alt="" className="w-60" />}
-                    <span className="flex-1 text-xl">{!showQuestion ? "Waiting ..." : part2Data[currentIndex]?.question[questionIndex]}</span>
+                    {showQuestion && <img src={`/images/part3/${part3Data[currentIndex]?.image}.PNG`} alt="" className="w-100" />}
+                    <span className="flex-1 text-xl">{!showQuestion ? "Waiting ..." : part3Data[currentIndex]?.question[questionIndex]}</span>
 
                     {result0 && (
                         <audio controls src={result0} className="mt-4">
@@ -142,9 +142,9 @@ export const Part2 = ({ part2Data }: Part2DataProps) => {
                 </Stack>
                 {questionIndex == 2 && !start && (
                     <Stack flex={1} direction={"column"} alignItems={"start"}>
-                        <span className=" text-xl">{part2Data[currentIndex]?.question[0]}</span>
-                        <span className=" text-xl">{part2Data[currentIndex]?.question[1]}</span>
-                        <span className=" text-xl">{part2Data[currentIndex]?.question[2]}</span>
+                        <span className=" text-xl">{part3Data[currentIndex]?.question[0]}</span>
+                        <span className=" text-xl">{part3Data[currentIndex]?.question[1]}</span>
+                        <span className=" text-xl">{part3Data[currentIndex]?.question[2]}</span>
                     </Stack>
                 )}
                 <Stack spacing={1}>

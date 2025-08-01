@@ -22,6 +22,10 @@ export const getPart2Data = async () => {
     const words = await ReadDefaultFile(`part2.json`);
     return words;
 };
+export const getPart3Data = async () => {
+    const words = await ReadDefaultFile(`part3.json`);
+    return words;
+};
 export const getPart4Data = async () => {
     const words = await ReadDefaultFile(`part4.json`);
     return words;

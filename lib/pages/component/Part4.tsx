@@ -4,14 +4,15 @@ import { CountdownCircle } from "@/core/component/CountDownCircle";
 import { PrimaryButton } from "@/core/component/button/PrimaryButton";
 import { getPart4Data } from "@/core/services/LoadFileService";
 
-type Part4DataType = {
-    question: string;
-    suggestion: string[];
+type Part4DataProps = {
+    part4Data: {
+        question: string;
+        suggestion: string[];
+    }[];
 };
 
-export const Part4 = () => {
+export const Part4 = ({ part4Data }: Part4DataProps) => {
     const [start, setStart] = useState(false);
-    const [part4Data, setPart4Data] = useState<Part4DataType[]>([]);
     const [currentIndex, setCurrentIndex] = useState(0);
     const [showQuestion, setShowQuestion] = useState(false);
     const [result, setResult] = useState<string>("");
@@ -27,20 +28,9 @@ export const Part4 = () => {
     }, []);
 
     useEffect(() => {
-        const fetchData = async () => {
-            const data = await getPart4Data();
-            // Shuffle mảng
-            const shuffledData = [...data];
-            for (let i = shuffledData.length - 1; i > 0; i--) {
-                const j = Math.floor(Math.random() * (i + 1));
-                [shuffledData[i], shuffledData[j]] = [shuffledData[j], shuffledData[i]];
-            }
-            setPart4Data(shuffledData);
-            if (data.length > 0) {
-                setCurrentIndex(0);
-            }
-        };
-        fetchData();
+        if (part4Data.length > 0) {
+            setCurrentIndex(0);
+        }
     }, []);
 
     const startRecording = async () => {

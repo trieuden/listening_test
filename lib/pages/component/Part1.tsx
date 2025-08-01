@@ -4,9 +4,12 @@ import { CountdownCircle } from "@/core/component/CountDownCircle";
 import { PrimaryButton } from "@/core/component/button/PrimaryButton";
 import { getPart1Data } from "@/core/services/LoadFileService";
 
-export const Part1 = () => {
+type Part1DataProps = {
+    part1Data: string[];
+};
+
+export const Part1 = ({ part1Data }: Part1DataProps) => {
     const [start, setStart] = useState(false);
-    const [part1Data, setPart1Data] = useState<string[]>([]);
     const [currentIndex, setCurrentIndex] = useState(0);
     const [showQuestion, setShowQuestion] = useState(false);
     const [result, setResult] = useState<string>("");
@@ -18,23 +21,9 @@ export const Part1 = () => {
     // Check if we're on client side
     useEffect(() => {
         setIsClient(true);
-    }, []);
-
-    useEffect(() => {
-        const fetchData = async () => {
-            const data = await getPart1Data();
-            // Shuffle mảng
-            const shuffledData = [...data];
-            for (let i = shuffledData.length - 1; i > 0; i--) {
-                const j = Math.floor(Math.random() * (i + 1));
-                [shuffledData[i], shuffledData[j]] = [shuffledData[j], shuffledData[i]];
-            }
-            setPart1Data(shuffledData);
-            if (data.length > 0) {
-                setCurrentIndex(0);
-            }
-        };
-        fetchData();
+        if (part1Data.length > 0) {
+            setCurrentIndex(0);
+        }
     }, []);
 
     const startRecording = async () => {
