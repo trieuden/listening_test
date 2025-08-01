@@ -1,0 +1,162 @@
+[
+    {
+        "image": "1",
+        "question": ["Describe the picture ", "What are the benefits of participating in sports?", "Talk about a sport you played recently or a sports program you watched?"]
+    },
+    {
+        "image": "2",
+        "question": ["Describe the picture", "What are the benefits of viewing artworks?", "Why do people like to go to art exhibitions?"]
+    },
+    {
+        "image": "3",
+        "question": ["Describe the picture", "Tell me about the time you gave a presentation? How did you feel?", "Why are people scared of public speaking?"]
+    },
+    {
+        "image": "4",
+        "question": ["Describe the picture", "Tell me about the time you received or gave gifts?", "On what occasions do people in your country give gifts?"]
+    },
+    {
+        "image": "5",
+        "question": ["Describe the picture", "Tell me about the last time you travelled in the car?", "How can people overcome the time of a long journey?"]
+    },
+    {
+        "image": "6",
+        "question": ["Describe the picture", "Tell me about the last time you used public transport.", "How can we increase the number of people using public transport?"]
+    },
+    {
+        "image": "7",
+        "question": ["Describe the picture", "What do you usually have for breakfast?", "Is it important to eat a big breakfast? Why?"]
+    },
+    {
+        "image": "8",
+        "question": ["Describe the picture", "What are the benefits of outdoor activities?", "Why do many people like outdoor activities?"]
+    },
+    {
+        "image": "9",
+        "question": ["Describe the picture", "Why do people like eating out with friends?", "Please talk about the last time you ate with friends."]
+    },
+    {
+        "image": "10",
+        "question": ["Describe the picture", "What do you do to relax?", "Why is it important for people to relax?"]
+    },
+    {
+        "image": "11",
+        "question": ["Describe the picture", "Tell me about a time when you gave or received some flowers?", "On what occasions in your country do people give flowers?"]
+    },
+    {
+        "image": "12",
+        "question": ["Describe the picture", "The last time you looked at some art?", "Why do people enjoy creating art?"]
+    },
+    {
+        "image": "13",
+        "question": ["Describe the picture", "Why is it important to play with children?", "How should parents spend time together with children?"]
+    },
+    {
+        "image": "14",
+        "question": ["Describe the picture", "How difficult is it for young people to learn to cook these days?", "When was the last time you went out to eat?"]
+    },
+    {
+        "image": "15",
+        "question": ["Describe the picture", "How often do you use public transport?", "Should people use public transport more? Yes/No"]
+    },
+    {
+        "image": "16",
+        "question": ["Describe the picture", "Tell me how you and your family spend time together", "Do you think today’s parents should spend more quality time with their children and why?"]
+    },
+    {
+        "image": "17",
+        "question": ["Describe the picture", "Do you prefer reading newspapers or watching news?", "Why do people need to watch the news?"]
+    },
+    {
+        "image": "18",
+        "question": ["Describe the picture", "How often do you watch films or programs at home? Why?", "Which is better for learning, watching video or reading? Why?"]
+    },
+    {
+        "image": "19",
+        "question": ["Describe the picture", "Do you often watch TV?", "Why is free time important?"]
+    },
+    {
+        "image": "20",
+        "question": ["Describe the picture", "What do you usually read?", "Why is it important for children to read?"]
+    },
+    {
+        "image": "21",
+        "question": ["Describe the picture", "When was the last time you visited a new place?", "Why do people like to go to new place?"]
+    },
+    {
+        "image": "22",
+        "question": ["Describe the picture", "Describe the last time you did some physical work.", "Do you think machines will do all our hard work in the future? Why?"]
+    },
+    {
+        "image": "23",
+        "question": ["Describe the picture", "Tell us the last time you went to the sea?", "Why do some people dislike going to the sea?"]
+    },
+    {
+        "image": "24",
+        "question": ["Describe the picture", "Do you often watch sport programs?", "What is the most popular sport in your country?"]
+    },
+    {
+        "image": "25",
+        "question": ["Describe the picture", "Tell me about a time you laugh a lot?", "Do you think people from different countries laugh at different things?"]
+    },
+    {
+        "image": "26",
+        "question": ["Describe the picture", "How do people learn to cook in your country?", "Why is it important for people to learn how to cook for themselves?"]
+    },
+    {
+        "image": "27",
+        "question": ["Describe the picture", "In your country, do parents care about their children?", "Why do parents care about their children?"]
+    },
+    {
+        "image": "28",
+        "question": ["Describe the picture", "How do children go to school in your country?", "Is it common to live far from school in your country? Why?"]
+    },
+    {
+        "image": "29",
+        "question": ["Describe the picture", "Do you like to climb mountain?", "Do you think outdoor activities are important?"]
+    },
+    {
+        "image": "30",
+        "question": ["Describe the picture", "Tell me about an animal that you like?", "How important are animals in our lives?"]
+    },
+    {
+        "image": "31",
+        "question": ["Describe the picture", "In your country, do parents care about their children?", "Why do parents care about their children?"]
+    },
+    {
+        "image": "32",
+        "question": ["Describe the picture", "Tell me the time you shopped in a local store?", "Nowadays, why do people like shopping online?"]
+    },
+    {
+        "image": "33",
+        "question": ["Describe the picture", "Tell me about a time that you went to a supermarket.", "Do you think that it is better to shop in one big store or in several smaller stores?"]
+    },
+    {
+        "image": "34",
+        "question": ["Describe the picture", "What do you think about living in a crowded city?", "Why do many people hate crowded places?"]
+    },
+    {
+        "image": "35",
+        "question": ["Describe the picture", "When was the last time you went on vacation with someone else?", "What are the benefits of hanging out with other people?"]
+    },
+    {
+        "image": "36",
+        "question": ["Describe the picture", "Have you ever written a hand letter?", "Do you plan to write handwritten letters in the future?"]
+    },
+    {
+        "image": "37",
+        "question": ["Describe the picture", "Tell me the last time you went shopping?", "Why do some people dislike busy places?"]
+    },
+    {
+        "image": "38",
+        "question": ["Describe the picture", "Tell me about the last time you went shopping", "Why do many people enjoy shopping with friends?"]
+    },
+    {
+        "image": "39",
+        "question": ["Describe the picture", "What are the advantages of learning in a class?", "Do you think online teaching will replace classroom learning?"]
+    },
+    {
+        "image": "40",
+        "question": ["Describe the picture", "Does technology help your life much?", "What do you usually use technology for?"]
+    }
+]

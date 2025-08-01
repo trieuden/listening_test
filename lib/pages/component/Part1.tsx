@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import {Stack} from "@mui/material";
+import { Stack } from "@mui/material";
 import { CountdownCircle } from "@/core/component/CountDownCircle";
 import { PrimaryButton } from "@/core/component/button/PrimaryButton";
 import { getPart1Data } from "@/core/services/LoadFileService";
@@ -39,11 +39,11 @@ export const Part1 = () => {
 
     const startRecording = async () => {
         // Check if we're in browser environment
-        if (typeof navigator === 'undefined' || !navigator.mediaDevices) {
-            console.error('Media devices not available');
+        if (typeof navigator === "undefined" || !navigator.mediaDevices) {
+            console.error("Media devices not available");
             return;
         }
-        
+
         try {
             const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
             const mediaRecorder = new MediaRecorder(stream);
@@ -62,7 +62,7 @@ export const Part1 = () => {
             mediaRecorder.start();
             mediaRecorderRef.current = mediaRecorder;
         } catch (error) {
-            console.error('Error accessing microphone:', error);
+            console.error("Error accessing microphone:", error);
         }
     };
 
@@ -73,6 +73,7 @@ export const Part1 = () => {
     };
 
     const handleCountdownEnd = () => {
+        //xử lý khi đếm ngược kết thúc
         stopRecording();
         setStart(false);
     };
@@ -99,7 +100,18 @@ export const Part1 = () => {
                     )}
                 </Stack>
 
-                <CountdownCircle start={start} setStart={setStart} onCountdownEnd={handleCountdownEnd} />
+                <Stack spacing={1}>
+                    <CountdownCircle start={start} setStart={setStart} onCountdownEnd={handleCountdownEnd} time={30} />
+                    {start && (
+                        <PrimaryButton
+                            title="Dừng"
+                            handleClick={() => {
+                                stopRecording(); // Dừng ghi âm
+                                setStart(false);
+                            }}
+                        />
+                    )}
+                </Stack>
             </Stack>
 
             <Stack direction="row" className="w-full justify-center" spacing={2}>
@@ -113,14 +125,7 @@ export const Part1 = () => {
                                 startRecording(); // Bắt đầu ghi âm
                             }}
                         />
-                        <PrimaryButton title="Tiếp theo" handleClick={NextIndex} bgColor="#cccc00" />
-                        <PrimaryButton
-                            title="Dừng"
-                            handleClick={() => {
-                                stopRecording(); // Dừng ghi âm
-                                setStart(false);
-                            }}
-                        />
+                        <PrimaryButton title="Câu tiếp theo" handleClick={NextIndex} bgColor="#cccc00" />
                     </>
                 )}
             </Stack>

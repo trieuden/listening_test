@@ -1,4 +1,4 @@
-export const ReadDefaultFile = async (fileName: string): Promise<string[]> => {
+export const ReadDefaultFile = async (fileName: string) => {
     try {
         // Check if we're in browser environment
         const baseUrl = typeof window !== 'undefined' 
@@ -16,5 +16,9 @@ export const ReadDefaultFile = async (fileName: string): Promise<string[]> => {
 
 export const getPart1Data = async () => {
     const words = await ReadDefaultFile(`part1.json`);
+    return words;
+};
+export const getPart2Data = async () => {
+    const words = await ReadDefaultFile(`part2.json`);
     return words;
 };
