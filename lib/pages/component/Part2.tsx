@@ -118,6 +118,7 @@ export const Part2 = ({ part2Data, handleGetResult_1, handleGetResult_2, handleG
             setResult1("");
             setResult2("");
             setQuestionIndex(0);
+            setIsButtonStartDisabled(false);
         }
     };
 

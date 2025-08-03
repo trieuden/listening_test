@@ -112,6 +112,7 @@ export const Part3 = ({ part3Data }: Part2DataProps) => {
             setResult1("");
             setResult2("");
             setQuestionIndex(0);
+            setIsButtonStartDisabled(false); // Enable the start button for the next topic
         }
     };
 
